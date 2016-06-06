@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SkyWarsReloaded2-bukkit-1.8.8">
+    <output-path>$PROJECT_DIR$/../out/SkyWarsReloaded2/</output-path>
+    <root id="archive" name="SkyWarsReloaded2-bukkit-1.8.8.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="SkyWarsReloaded2" />
+    </root>
+  </artifact>
+</component>
