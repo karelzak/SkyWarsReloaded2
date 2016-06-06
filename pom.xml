@@ -80,15 +80,15 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <version>1.9-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>craftbukkit</artifactId>
-            <version>1.8.8-R0.3-SNAPSHOT</version>
+            <version>1.9-R0.1-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/../lib/craftbukkit-1.8.8.jar</systemPath>
+            <systemPath>${project.basedir}/../lib/craftbukkit-1.9.2.jar</systemPath>
             <type>jar</type>
             <optional>true</optional>
         </dependency>

@@ -175,14 +175,14 @@ gameItems:
   glassLobbyMenuSlot: 6
   glassOptionsMenuSlot: 20
 gameSounds:
-  playerJoinLobby: SLIME_WALK2
-  playerLeaveLobby: SLIME_ATTACK
-  playerDeath: AMBIENCE_THUNDER
-  playerWin: FIREWORK_LARGE_BLAST
-  opChestVote: CHEST_OPEN
-  timeVote: FUSE
-  weatherVote: SPLASH
-  jumpVote: MAGMACUBE_JUMP
+  playerJoinLobby: ENTITY_SLIME_ATTACK
+  playerLeaveLobby: ENTITY_PLAYER_BIG_FALL
+  playerDeath: ENTITY_PLAYER_DEATH
+  playerWin: ENTITY_FIREWORK_LARGE_BLAST
+  opChestVote: BLOCK_CHEST_OPEN
+  timeVote: BLOCK_CHEST_OPEN
+  weatherVote: WEATHER_RAIN
+  jumpVote: ENTITY_MAGMACUBE_JUMP
 lobbyGuard:
   enabled: false
   hungerDisabled: true

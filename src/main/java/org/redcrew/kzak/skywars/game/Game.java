@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import net.minecraft.server.v1_8_R3.ChunkCoordIntPair;
-import net.minecraft.server.v1_8_R3.EntityHuman;
-import net.minecraft.server.v1_8_R3.EntityPlayer;
+import net.minecraft.server.v1_9_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
@@ -27,7 +25,8 @@ import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.block.DoubleChest;
-import org.bukkit.craftbukkit.v1_8_R3.CraftChunk;
+import org.bukkit.craftbukkit.v1_9_R1.CraftChunk;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
@@ -1278,7 +1277,7 @@ public class Game {
         } else if (weather.equalsIgnoreCase("snow")) {
             for (int x = min; x < max; x++) {
                 for (int z = min; z < max; z++) {
-                    world.setBiome(x, z, Biome.ICE_PLAINS);
+                    world.setBiome(x, z, Biome.ICE_FLATS);
                 }
             }
             world.setStorm(true);
@@ -1291,13 +1290,18 @@ public class Game {
         }
     }
 
-    private void updateChunks(World world, List<Chunk> chunks) {
+
+    public void updateChunks(World world, List<Chunk> chunks) {
         for (Chunk currentChunk : chunks) {
-            net.minecraft.server.v1_8_R3.World mcWorld = ((CraftChunk) currentChunk).getHandle().world;
+            if (!currentChunk.isLoaded())
+                continue;
+            net.minecraft.server.v1_9_R1.World mcWorld = ((CraftChunk) currentChunk).getHandle().world;
             for (EntityHuman eh : (List<EntityHuman>) mcWorld.players) {
-                EntityPlayer ep = (EntityPlayer) eh;
-                ep.chunkCoordIntPairQueue.add(new ChunkCoordIntPair(currentChunk.getX(), currentChunk.getZ()));
+                Player player = (Player) eh;
+                PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
+                connection.sendPacket(new PacketPlayOutMapChunk(((CraftChunk) currentChunk).getHandle(), true, '\uffff')); //Send it!
             }
+
         }
     }
 
