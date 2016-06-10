@@ -1,6 +1,6 @@
 name: SkyWarsReloaded2
 main: org.redcrew.kzak.skywars.SkyWarsReloaded
-version: 2.8
+version: 2.9.1
 
 depend: [Vault]
 softdepend: [Multiverse-Core]
